@@ -6,7 +6,13 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ __('Register') }}</div>
-
+                @isset($errors)
+                    @foreach ($errors->all() as $error)
+                        <div class="alert alert-danger">
+                            {{ $error }}
+                        </div>
+                    @endforeach
+                @endisset
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
@@ -26,21 +32,30 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="role" class="col-md-4 col-form-label text-md-right">{{ __('Penggunaan') }}</label>
+                            <label for="role_id" class="col-md-4 col-form-label text-md-right">{{ __('Penggunaan') }}</label>
 
                             <div class="col-md-6">
-                                <select name="role" id="role" class="form-control">
+                                <select name="role_id" id="role_id" class="form-control" onchange="change_role(this.value)">
                                     <option value="" disabled selected>Pilih</option>
-                                    <option value="pengguna">Jual Telur</option>
-                                    <option value="pembeli">Pembeli</option>
+                                    @foreach (App\Models\Role::all() as $item)
+                                        @if($item->id != 1)
+                                            <option value="{{ $item->id }}" @if(old('role_id') == $item->id) selected @endif>{{ $item->peran }}</option>
+                                        @endif
+                                    @endforeach
                                 </select>
+
+                                @error('role_id')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
                         </div>
 
-                        <div class="form-group row">
+                        <div class="form-group row" id="nama_usaha_form" style="display: none">
                             <label for="nama_usaha" class="col-md-4 col-form-label text-md-right">{{__('Nama Usaha')   }}</label>
                             <div class="col-md-6">
-                                <input id="nama_usaha" type="text" class="form-control @error('nama_usaha') is-invalid @enderror" name="nama_usaha" value="{{ old('nama_usaha') }}" required autocomplete="nama_usaha" autofocus>
+                                <input id="nama_usaha" type="text" class="form-control @error('nama_usaha') is-invalid @enderror" name="nama_usaha" value="{{ old('nama_usaha') }}" autocomplete="nama_usaha" autofocus>
 
                                 @error('nama_usaha')
                                     <span class="invalid-feedback" role="alert">
@@ -120,6 +135,20 @@
                         </div>
 
                         <div class="form-group row">
+                            <label for="username" class="col-md-4 col-form-label text-md-right">{{ __('Username') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="username" type="text" class="form-control @error('username') is-invalid @enderror" name="username" required autocomplete="new-username">
+
+                                @error('username')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
                             <div class="col-md-6">
@@ -154,4 +183,16 @@
         </div>
     </div>
 </div>
+
 @endsection
+
+<script>
+    function change_role(value){
+        if(value == 2){
+            $('#nama_usaha_form').fadeOut();
+        }
+        else if(value == 3){
+            $('#nama_usaha_form').fadeIn();
+        }
+    }
+</script>

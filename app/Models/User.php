@@ -19,7 +19,7 @@ class User extends Authenticatable
        'role_id',
        'nama_lengkap',
        'nama_usaha',
-       'nomor_telp',
+       'no_telp',
        'email',
        'kabupaten',
        'kecamatan',
