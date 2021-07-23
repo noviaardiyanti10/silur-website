@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
-use App\Providers\RouteServiceProvider;
 use App\Models\User;
-use Illuminate\Foundation\Auth\RegistersUsers;
+use App\Models\Kabupaten;
+use App\Models\Kecamatan;
+use App\Http\Controllers\Controller;
+use App\Models\Role;
 use Illuminate\Support\Facades\Hash;
+use App\Providers\RouteServiceProvider;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Foundation\Auth\RegistersUsers;
 
 class RegisterController extends Controller
 {
@@ -23,6 +26,16 @@ class RegisterController extends Controller
     */
 
     use RegistersUsers;
+    
+    public function showRegistrationForm()
+    {
+        
+        $data['kecamatan'] = Kecamatan::all();
+        $data['kabupaten'] = Kabupaten::all();
+        $data['role'] = Role::all();
+        
+        return view('auth.register', compact('data'));
+    }
 
     /**
      * Where to redirect users after registration.
@@ -58,7 +71,7 @@ class RegisterController extends Controller
             'kabupaten' => ['required'],
             'kecamatan' => ['required'],
             'alamat' => ['required'],
-            'username' => ['required'],
+            'username' => ['required','unique:users','min:4'],
         ]);
     }
 
@@ -76,8 +89,8 @@ class RegisterController extends Controller
             'role_id' => $data['role_id'],
             'nama_lengkap' => $data['nama_lengkap'],
             'no_telp'  => $data['no_telp'],
-            'kabupaten' => $data['kabupaten'],
-            'kecamatan' => $data['kecamatan'],
+            'kabupaten' => Kabupaten::find($data['kabupaten'])->nama_kabupaten,
+            'kecamatan' => Kecamatan::find($data['kecamatan'])->nama_kecamatan,
             'alamat' => $data['alamat'],
             'username' => $data['username'],
             'nama_usaha' => $data['nama_usaha'] ?? null,

@@ -6,13 +6,6 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ __('Register') }}</div>
-                @isset($errors)
-                    @foreach ($errors->all() as $error)
-                        <div class="alert alert-danger">
-                            {{ $error }}
-                        </div>
-                    @endforeach
-                @endisset
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
@@ -37,7 +30,7 @@
                             <div class="col-md-6">
                                 <select name="role_id" id="role_id" class="form-control" onchange="change_role(this.value)">
                                     <option value="" disabled selected>Pilih</option>
-                                    @foreach (App\Models\Role::all() as $item)
+                                    @foreach ($data['role'] as $item)
                                         @if($item->id != 1)
                                             <option value="{{ $item->id }}" @if(old('role_id') == $item->id) selected @endif>{{ $item->peran }}</option>
                                         @endif
@@ -80,9 +73,32 @@
 
                         
                         <div class="form-group row">
+                            <label for="kabupaten" class="col-md-4 col-form-label text-md-right">{{__('Kabupaten')   }}</label>
+                            <div class="col-md-6">
+                                <select name="kabupaten" id="kabupaten" class="form-control" onchange="change_kabupaten(this.value)">
+                                    <option value="" disabled selected>Pilih Kabupaten</option>
+                                    @foreach ($data['kabupaten'] as $item)
+                                        <option value="{{ $item->id }}" @if(old('kabupaten') == $item->id) selected @endif>{{ $item->nama_kabupaten }}</option>
+                                    @endforeach
+                                </select>
+
+                                @error('kabupaten')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+                        
+                        <div class="form-group row">
                             <label for="kecamatan" class="col-md-4 col-form-label text-md-right">{{__('Kecamatan')   }}</label>
                             <div class="col-md-6">
-                                <input id="kecamatan" type="text" class="form-control @error('kecamatan') is-invalid @enderror" name="kecamatan" value="{{ old('kecamatan') }}" required autocomplete="kecamatan" autofocus>
+                                <select name="kecamatan" id="kecamatan" class="form-control">
+                                    <option value="" disabled selected>Pilih Kecamatan</option>
+                                    @foreach ($data['kecamatan'] as $item)
+                                        <option style="display: none" data-id="{{ $item->kabupaten_id }}" value="{{ $item->id }}" @if(old('kecamatan') == $item->id) selected @endif>{{ $item->nama_kecamatan }}</option>
+                                    @endforeach
+                                </select>
 
                                 @error('kecamatan')
                                     <span class="invalid-feedback" role="alert">
@@ -92,20 +108,6 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
-
-                            <label for="kabupaten" class="col-md-4 col-form-label text-md-right">{{__('Kabupaten')   }}</label>
-                            <div class="col-md-6">
-                                <input id="kabupaten" type="text" class="form-control @error('kabupaten') is-invalid @enderror" name="kabupaten" value="{{ old('kabupaten') }}" required autocomplete="kabupaten" autofocus>
-
-                                @error('kabupaten')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-                      
                     <div class="form-group row">
                         <label for="alamat" class="col-md-4 col-form-label text-md-right">{{__('Alamat')   }}</label>
                         <div class="col-md-6">
@@ -194,5 +196,22 @@
         else if(value == 3){
             $('#nama_usaha_form').fadeIn();
         }
+    }
+
+    function change_kabupaten(value) {
+        // unselect select
+        $('#kecamatan').prop('selectedIndex', 0);
+
+        $('#kecamatan option').each(function(){
+            if(value == $(this).data('id')){
+                // show option if value same with id
+                $(this).show();
+            }
+            else{
+                // hide option if value different with id
+                $(this).hide();
+            }
+        });
+
     }
 </script>
