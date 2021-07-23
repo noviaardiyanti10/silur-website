@@ -15,6 +15,8 @@ class RoleSeeder extends Seeder
      */
     public function run()
     {
+        DB::table('role')->truncate();
+
         DB::table('role')->insert([
             'peran' => 'Admin',
             'created_at' => Carbon::now(),
