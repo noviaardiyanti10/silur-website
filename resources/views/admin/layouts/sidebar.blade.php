@@ -1,8 +1,8 @@
 <aside>
     <div id="sidebar" class="nav-collapse ">
         <!-- sidebar menu start-->
-        <ul class="sidebar-menu" id="nav-accordion">
-            <p class="centered"><a><img src="assets/img/profil.jpg" class="img-rounded" width="100" height="110"></a>
+        <ul class="sidebar-menu" id="nav-accordion">            
+            <p class="centered"><a><img src="{{ Auth::user()->avatar == null ? asset('assets/img/profil.jpg') : url('storage/'.Auth::user()->avatar) }}" class="img-rounded" width="100" height="110"></a>
             </p>
             <h5 class="centered" style="font-size: 18px; color: white; font-weight: bold; font-family: sans-serif;">
                 {{ Auth::user()->username }}
