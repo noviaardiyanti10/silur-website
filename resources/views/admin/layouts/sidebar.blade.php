@@ -20,7 +20,7 @@
                             style="padding-left:2px;"> <i class="fa fa-angle-down"></i></span></span>
                 </a>
                 <ul class="sub">
-                    <li><a href="list_pedagang.html" style="font-size: 16px; font-weight: bold;">Data
+                    <li><a href="{{ url('pedagang') }}" style="font-size: 16px; font-weight: bold;">Data
                             Pedagang</a></li>
                     <li><a href="list_pembeli.html" style="font-size: 16px; font-weight: bold;">Data Pembeli</a>
                     </li>

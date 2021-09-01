@@ -2,7 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProfilController;
+use App\Http\Controllers\SellerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,5 +26,11 @@ Route::get('/register', function(){
 
 Auth::routes();
 
-Route::get('/home', [HomeController::class, 'index'])->name('home');
-Route::resource('/profil', ProfilController::class);
+// auth middelware
+Route::group(['middleware' => 'auth'], function(){
+
+    Route::get('/home', [HomeController::class, 'index'])->name('home');
+    Route::post('/user/destroy/{id}', [UserController::class, 'destroy'])->name('user.destroy');
+    Route::resource('/profil', ProfilController::class);
+    Route::resource('/pedagang', SellerController::class);
+});

@@ -17,11 +17,11 @@
                                 </div>
                                 <div class="panel-body">
                                     <center>
-                                        <h1>1 Pedagang</h1>
+                                        <h1>{{ App\Models\User::where('role_id', 3)->count() }} Pedagang</h1>
                                     </center>
                                 </div>
                                 <div class="panel-footer">
-                                    <h4 style="font-size:15px;"><a href='list_pedagang.html'
+                                    <h4 style="font-size:15px;"><a href='{{ url('pedagang') }}'
                                             style="color: rgb(73, 141, 73);">Tabel data pedagang <i
                                                 class='fa fa-arrow-right'></i></a></h4>
                                 </div>
@@ -37,7 +37,7 @@
                                 </div>
                                 <div class="panel-body">
                                     <center>
-                                        <h1>3 Orang</h1>
+                                        <h1>{{ App\Models\User::where('role_id', 2)->count() }} Orang</h1>
                                     </center>
                                 </div>
                                 <div class="panel-footer">
@@ -57,7 +57,7 @@
                                 </div>
                                 <div class="panel-body">
                                     <center>
-                                        <h1>5 Orang</h1>
+                                        <h1>{{ App\Models\User::where('role_id', 1)->count() }} Orang</h1>
                                     </center>
                                 </div>
                                 <div class="panel-footer">
