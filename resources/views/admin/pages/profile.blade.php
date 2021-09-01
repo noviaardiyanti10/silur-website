@@ -91,7 +91,7 @@
                                     <div class="form-group">
                                         <label class="col-md-3 control-label" style="font-size: 18px;">Konfirmasi Password:</label>
                                         <div class="col-md-8">
-                                            <input class="form-control" name="password-confirmation" type="password" value="">
+                                            <input class="form-control" name="password_confirmation" type="password" value="">
                                         </div>
                                     </div>
 
