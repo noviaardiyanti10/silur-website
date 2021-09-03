@@ -30,10 +30,10 @@ class ProfilController extends Controller
         if($request->password) {
             $data['password'] = bcrypt($request->password);
         }
-
         if($request->avatar) {
             $file_name = null;
-            $destination = 'public/user/profil/';
+            
+            $destination = 'public/user/profil/';                           
             if ($request->hasFile('avatar'))
             {
                 if (!file_exists(storage_path($destination))) {
