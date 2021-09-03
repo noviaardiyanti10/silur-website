@@ -104,8 +104,7 @@
                                             </div>
 
                                             <div class="mb-3" style="width: 700px;">
-                                                <img id="imgPreview2" src=""
-                                                    class="avatar" alt="avatar"
+                                                <img id="imgPreview2" src="" class="avatar" alt="avatar"
                                                     style="width: 120px; height: 130px;">
                                                 <p>Upload Foto Produk</p>
                                                 <input onchange="showPreview2(this)" name="foto" type="file"
@@ -158,8 +157,14 @@
                                     <td>{{ $item->status }}</td>
                                     <td>
                                         <a href="editbarang.html"><button class="btn btn-warning">Edit</button></a>
-                                        <a href="#" onclick="javascript:return confirm('Hapus Data Kategori ?');"><button
-                                                class="btn btn-danger">Hapus</button></a>
+
+                                        <form method="POST" action="{{ route('produk.destroy', $item->id) }}">
+                                            @csrf
+                                            @method('DELETE')
+                                            <a href="#"
+                                                onclick="javascript:return confirm('Hapus Data Kategori ?');"><button
+                                                    class="btn btn-danger">Hapus</button></a>
+                                        </form>
                                     </td>
                                 </tr>
                             @empty

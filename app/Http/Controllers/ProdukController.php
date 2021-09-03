@@ -60,4 +60,12 @@ class ProdukController extends Controller
 
         return redirect()->route('produk.index')->with('success', 'Data berhasil ditambahkan');
     }
+
+    public function destroy($id)
+    {
+        $data = Produk::findOrFail($id);
+        $data->delete();
+
+        return redirect()->route('produk.index')->with('success', 'Data berhasil dihapus');
+    }
 }
