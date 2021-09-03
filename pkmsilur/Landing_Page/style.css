@@ -1,0 +1,266 @@
+body {
+    /* font-family: 'Poppins', sans-serif; */
+    background-color: #fafdfd;
+}
+p {
+    font-weight: 100;
+}
+/* Navbar */
+.navbar {
+    /* position: relative; */
+    z-index: 2;
+    background-color: #df9355;
+    box-shadow: rgba(182, 212, 241, 0.1) 0px 8px 24px;
+}
+.navbar-brand {
+    font-family: 'Viga', sans-serif;
+    font-size: 32px;
+}
+
+.nav-link {
+    font-size: small;
+}
+
+
+.tombol {
+    text-transform: uppercase;
+    border-radius: 5px;
+    border-color: #58a647;
+    background-color: #58a647;
+    font-size: small;
+    border: 0px;
+}
+
+.tombol:hover {
+    background-color: rgb(245, 182, 110);
+    border: 0px;
+}
+
+/* Jumbotron */
+.jumbotron {
+    background-image: url(img/jumbotron-bg2.jpg);
+    background-size: cover;
+    height: 60vh; 
+    text-align: center;
+    position: relative;
+}
+.jumbotron .container {
+    position: relative;
+    z-index: 1;
+}
+
+/* .jumbotron::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 80%;
+    background-image: linear-gradient(to top, rgba(0,0,0,1), rgba(0,0,0,0));
+    position: absolute;
+    bottom: 0;
+} */
+
+.jumbotron .display-4 {
+    color: white;
+    margin-top: 100px;
+    /* text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5 ); */
+    margin-bottom: 60px;
+    /* font-size: 30px; */
+    text-align: left !important;
+    text-transform: uppercase;
+}
+.jumbotron .display-4 h1 {
+    font-weight: 200;
+    font-size: 50px;
+}
+.jumbotron .display-4 h6 {
+    font-weight: 200;
+}
+
+.jumbotron .display-4 span{
+    color: white;
+    margin-top: 150px;
+    font-weight: 500;
+}
+
+
+.mini-box .row .mini-box-10{
+    background-color: white;
+    border-radius: 10px;
+    margin-top: -125px;
+    box-shadow: rgba(149, 157, 165, 0.1) 0px 8px 24px;
+    padding: 10px;
+}
+
+.mini-box p {
+    font-size: 12px;
+}
+
+.title h3 span{
+    /* background-color: teal; */
+    color: rgb(253, 136, 1);
+}
+.cara-transaksi-10 {
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: rgba(149, 157, 165, 0.1) 0px 8px 24px;
+    padding-left: 30px;
+    padding-top: 20px;
+    padding-right: 30px;
+}
+
+
+.cara-transaksi-10 p {
+    font-size: 12px;
+}
+
+.produk .produk-10 {
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: rgba(149, 157, 165, 0.1) 0px 8px 24px;
+
+}
+
+.produk .produk-100 {
+    padding: 30px;
+}
+
+.produk p {
+    font-size: 12px;
+}
+
+.produk .harga {
+    font-weight: 500;
+    color: rgb(253, 136, 1);
+}
+
+.produk a {
+    color: rgb(253, 136, 1) !important;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: none;
+    color: rgb(255, 170, 73) !important;
+}
+
+.mitra .foto {
+    box-shadow: rgba(149, 157, 165, 0.1) 0px 8px 24px;
+}
+
+
+.testimonial .testimonial-10 {
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: rgba(149, 157, 165, 0.1) 0px 8px 24px;
+}
+
+.testimonial p {
+    font-size: 12px;
+}
+
+.testimonial .testimonial-100 {
+    padding : 0px 30px 10px;
+}
+
+/* footer */
+.footer {
+    background-color: black;
+    background-size: cover;
+    height: 38vh;
+    padding-top: 25px;
+    margin-top: 100px;
+    color: white;
+}
+
+.footer h1 {
+    color: white;
+    font-family: 'Viga', sans-serif;
+    font-size: 32px;
+
+}
+
+.footer a p{
+    margin-bottom: 1px;
+    color: white !important;
+    text-decoration: none;
+}
+
+.footer p {
+    font-size: 12px;
+    text-align: justify;
+}
+
+@media (min-width: 576px) { 
+    .deskripsi.text{
+        text-align: center;
+    }
+}
+
+
+@media (min-width: 768px) { 
+
+}
+
+
+/* Dekstop version */
+@media (min-width: 992px) { 
+    .navbar-brand, .nav-link {
+        color: white !important;
+        /* text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.7 ); */
+        
+    }
+    .nav-link.user h6{
+        font-weight: 1000;
+    }
+    .nav-link {
+        text-transform: uppercase;
+        margin-right: 20px ;
+    }
+    .nav-link:hover {
+        font-size: 300;
+
+    }
+    .nav-link.active {
+        text-transform: uppercase;
+        margin-right: 20px ;
+    }
+    .nav-link:hover::after {
+        content: '';
+        display: block;
+        border-bottom: 3px solid rgb(253, 136, 1);
+        width: 50%;
+        margin: auto;
+        padding-bottom: 5px;
+        margin-bottom: -8px;
+        
+
+    }
+    .active::after {
+        content: '';
+        display: block;
+        border-bottom: 3px solid rgb(253, 136, 1);
+        width: 50%;
+        margin: auto;
+        padding-bottom: 5px;
+        margin-bottom: -8px;
+    }
+    .jumbotron {
+        margin-top: -75px;
+        height: 80vh;
+    }
+    .jumbotron .display-4 {
+        font-size: 62px;
+    }
+
+    .tombol {
+        padding-right: 30px;
+        padding-left: 30px;
+    }
+    .deskripsi.text{
+        text-align:left;
+    }
+ }
+
+
+@media (min-width: 1200px) { 
+
+ }
