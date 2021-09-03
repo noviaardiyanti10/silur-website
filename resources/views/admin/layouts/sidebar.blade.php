@@ -28,6 +28,18 @@
                     </li>
                 </ul>
             </li>
+            @if(Auth::user()->role_id == 3)
+            <li class="sub-menu">
+                <a href="javascript:;" >
+                    <i class="fas fa-dolly-flatbed" style=" color: #595959;"></i>
+                    <span style="font-size: 16px; color: #595959; font-weight: bold;">Data Barang <span style="padding-left:2px;"> <i class="fa fa-angle-down"></i></span></span>
+                </a>
+                <ul class="sub">
+                    <li><a  href="#" style="font-size: 16px; font-weight: bold;">Barang</a></li>
+                    <li><a  href="{{ url('/kategori') }}" style="font-size: 16px; font-weight: bold;">Kategori</a></li>
+                </ul>
+            </li>
+            @endif
             <li class="sub-menu">
                 <a href="javascript:;">
                     <i class="fa fa-cog" style=" color: #595959;"></i>

@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\SellerController;
+use App\Http\Controllers\KategoriController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,4 +34,6 @@ Route::group(['middleware' => 'auth'], function(){
     Route::post('/user/destroy/{id}', [UserController::class, 'destroy'])->name('user.destroy');
     Route::resource('/profil', ProfilController::class);
     Route::resource('/pedagang', SellerController::class);
+    
+    Route::resource('/kategori', KategoriController::class);
 });
