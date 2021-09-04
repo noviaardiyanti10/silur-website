@@ -21,6 +21,17 @@ class ProdukController extends Controller
 
         return view('admin.pages.produk.index', compact('data','kategori'));
     }
+    
+    public function edit($id)
+    {
+        $data = Produk::createdBy()->findOrFail($id);
+        $kategori = Kategori::createdBy()->get();
+                
+        $data->status = config('const.produk_status')[$data->status];
+        $data->satuan = config('const.produk_satuan')[$data->satuan];
+
+        return view('admin.pages.produk.edit', compact('data','kategori'));
+    }
 
     public function store(Request $request)
     {
@@ -59,6 +70,45 @@ class ProdukController extends Controller
         Produk::create($data);
 
         return redirect()->route('produk.index')->with('success', 'Data berhasil ditambahkan');
+    }
+
+    public function update(Request $request, $id)
+    {
+        $data = [
+            'nama_produk' => $request->nama_produk,
+            'kategori_id' => $request->kategori,
+            'harga' => $request->harga,
+            'satuan' => $request->satuan,
+            'jumlah' => $request->jumlah,
+            'deskripsi' => $request->deskripsi,
+            'pengusaha_id' => auth()->user()->id,
+            'status' => $request->status,
+        ];
+
+        if($request->foto) {
+            $file_name = null;
+            
+            $destination = 'public/produk/foto/';                           
+            if ($request->hasFile('foto'))
+            {
+                if (!file_exists(storage_path($destination))) {
+                    Storage::makeDirectory($destination);
+                }
+
+                $file = $request->file('foto');
+                $extention = $file->getClientOriginalExtension();
+                $file_name = md5($file->getClientOriginalName())."_unique_".uniqid().".".$extention;
+                $file->storeAs($destination, $file_name);
+                $file_path = 'produk/foto/'.$file_name;
+                $file_name = $file->getClientOriginalName();
+            }
+
+            $data['foto'] = $file_path;
+        }
+
+        Produk::findOrFail($id)->update($data);
+
+        return redirect()->route('produk.index')->with('success', 'Data berhasil diperbarui');
     }
 
     public function destroy($id)

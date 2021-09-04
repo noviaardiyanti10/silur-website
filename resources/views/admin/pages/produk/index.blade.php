@@ -156,7 +156,7 @@
                                     <td>{{ $item->jumlah }}</td>
                                     <td>{{ $item->status }}</td>
                                     <td>
-                                        <a href="editbarang.html"><button class="btn btn-warning">Edit</button></a>
+                                        <a href="{{ route('produk.edit', $item->id) }}"><button class="btn btn-warning">Edit</button></a>
 
                                         <form method="POST" action="{{ route('produk.destroy', $item->id) }}">
                                             @csrf
