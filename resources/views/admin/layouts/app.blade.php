@@ -81,7 +81,6 @@
 
     <script src="{{ asset('assets/datatables/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('assets/datatables/dataTables.bootstrap.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('assets/datatables/jquery.dataTables.js') }}"></script>
     <script type="text/javascript" src="{{ asset('assets/datatables/dataTables.bootstrap.js') }}"></script>
 

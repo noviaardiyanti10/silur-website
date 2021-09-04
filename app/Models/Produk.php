@@ -21,4 +21,19 @@ class Produk extends Model
         'foto',
         'status',
     ];
+
+    public function kategori()
+    {
+        return $this->belongsTo(Kategori::class, 'kategori_id');
+    }
+
+    public function pengusaha()
+    {
+        return $this->belongsTo(Pengusaha::class, 'pengusaha_id');
+    }
+
+    public function scopeCreatedBy()
+    {
+        return $this->where('pengusaha_id', auth()->user()->id)->latest();
+    }
 }

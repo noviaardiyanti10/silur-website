@@ -188,8 +188,8 @@
                                         class="form-control btn btn-primary rounded submit px-3">Register</button>
                                 </div>
                             </form>
-                            <p class="text-center">Sudah memiliki akun? <a data-toggle="tab"
-                                    href="{{ url('/login') }}">Login</a></p>
+                            <p class="text-center">Sudah memiliki akun? <a href="{{ url('/login') }}">Login</a>
+                            </p>
                         </div>
                     </div>
                 </div>
