@@ -39,6 +39,7 @@
                     <li><a  href="{{ url('/kategori') }}" style="font-size: 16px; font-weight: bold;">Kategori</a></li>
                 </ul>
             </li>
+
             @endif
             <li class="sub-menu">
                 <a href="javascript:;">

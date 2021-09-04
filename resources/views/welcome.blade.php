@@ -134,7 +134,7 @@
         <div>
             <div class="row justify-content-center entahlah">
                 <div class="col-lg-12 justify-content-center d-flex">
-                    <h3 class="title ">Entahlah</h3>
+                   <!-- <h3 class="title ">Entahlah</h3>-->
                 </div>
             </div>
         </div>
