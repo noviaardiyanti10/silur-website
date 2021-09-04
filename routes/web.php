@@ -26,6 +26,13 @@ Route::get('/register', function(){
     return view('register');
 });
 
+Route::get('/beranda', function(){
+    return view('beranda');
+});
+Route::get('/detaildagang', function(){
+    return view('detaildagang');
+});
+
 Auth::routes();
 
 // auth middelware
