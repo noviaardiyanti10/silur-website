@@ -32,6 +32,7 @@
                     <ul class="navbar-nav ml-auto">
                         <a class="nav-item nav-link font-weight-bold text-warning" href="{{ url('/') }}">Home <span class="sr-only">(current)</span></a>
                         <a class="nav-item nav-link font-weight-bold text-warning" href="#">Hubungi Kami</a>
+                        <a class="nav-item nav-link font-weight-bold text-warning" href="{{ url('/keranjangpembeli') }}">Keranjang</a>
                     </ul>
                 </div>
                 <form class="form-inline my-2 my-lg-0">
@@ -40,6 +41,7 @@
                   </form>
             </div>
         </nav>
+    </header>
         <!-- Page Content  -->
         <div>
             <div class="row d-flex justify-content-center" style="padding: 50px;">

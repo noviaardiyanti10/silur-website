@@ -10,7 +10,7 @@
     <title>SILUR</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">
     <!--external css-->
     <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="assets/css/zabuto_calendar.css">
@@ -28,8 +28,8 @@
       
     
     <!-- Custom styles for this template -->
-    <link href="assets/css/style.css" rel="stylesheet">
-    <link href="assets/css/style-responsive.css" rel="stylesheet">
+    <link href="{{ asset('css/detail.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/beranda.css') }}">
 
         <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="assets/datatables/jquery.dataTables.js"></script>
@@ -48,31 +48,37 @@
     <![endif]-->
   </head>
   <body>
+    <header>
+      <nav class="navbar navbar-expand-lg">
+          <div class="container-fluid">
+
+              <a class="navbar-brand " href="#"><h1 class="font-weight-bold text-warning">Silur</h1></a>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+              </button>
+
+              <div>
+                  
+              </div>
+
+              <div class="collapse navbar-collapse" id="navbarNav">
+                  <ul class="navbar-nav ml-auto">
+                      <h3><a class="nav-item nav-link font-weight-bold text-warning" href="{{ url('/') }}">Home <span class="sr-only">(current)</span></a></h3>
+                      <h3><a class="nav-item nav-link font-weight-bold text-warning" href="{{ url('/keranjangpembeli') }}">Keranjang</a></h3>
+                  </ul>
+              </div>
+      </nav>
+  </header>
     <style>
       body{background:#fff; }
     </style>
 	<section id="container" >
-      <!-- **********************************************************************************************************************************************************
-      TOP BAR CONTENT & NOTIFICATIONS
-      *********************************************************************************************************************************************************** -->
-      <!--header start-->
-      <header class="header black-bg">
-        <!--logo start-->
-        <a href="index.php" class="logo"><b style="margin-left: 70px; font-size: 25px;">SILUR</b></a>
-        <!--logo end-->
-        <div class="top-menu">
-            <ul class="nav pull-right top-menu">
-                <li><a class="logout" onclick="javascript: return confirm('Ingin Logout ?');" href="logout.php">Logout</a></li>
-            </ul>
-        </div>
-       </header>
-      <!--header end-->
 
       <!-- **********************************************************************************************************************************************************
       MAIN CONTENT
       *********************************************************************************************************************************************************** -->
       <!--main content start-->
-      <div class="container mt-4" style="padding-top: 100px;">
+      <div class="container mt-4">
         <div class="row">
           <div class="col-md-9 mt-4">
                <div class="card-box" id="picture">
@@ -82,7 +88,6 @@
                <div class="card-box" id="picture">
          
                 <div class="card-header" style="font-weight: bold; font-size: 20px; width: 700px;">Deskripsi Produk</div>
-                <div style="border-top: 6px double #eb9046; margin-top: 1em; padding-top: 1em;"></div>
                   <ul class="list-group list-group-flush" style="font-size: 17px; color: black; font-family: sans-serif;">
                     <li>Stok : 1000 btr</li>
                     <li>Jual grosir dan ecera</li>
@@ -103,19 +108,24 @@
             <div class="card-box" id="right" style="height: 250px;">
                 <h3><a href="#" class="mt-2 ml-4 text-danger" style="font-weight: bold;">Informasi Penjual</a></h3>
                 <div class="row">
-                  <div>
+                  <div class="col-md-3">
                     <img class="img-rounded" src="assets/img/profil.jpg" alt="" style="width: 70px; height: 70px; float: left;
                     position: relative;">
                   </div>
-                  <div>
-                    <p class="text-secondary" style="font-weight: bold; font-size: 20px; margin-top: 20px; margin-left: 80px;">Pak Karsana </p>
-                    <h6>Punjungan, Pupuan, Tabanan</h6>
+                  <div class="col-md-7">
+                    <h4 class="font-weight-bold mt-4 ml-4">Pak Karsana</h4>
                   </div>
                 </div>
                 
-                <div class="card-footer" style="padding-top: 10px; padding-left: 85px;">
-                    <div class="row" style="margin-left: 2rem;">
-                        <i class="fab fa-whatsapp" style="margin-right: 8px; font-size: 20px;"></i>
+                <div class="card-footer mt-4 mb-0">
+                    <div class="row ml-4">
+                      <div class="col-md-3">
+                        <a href="#"><i class="fab fa-whatsapp" style="margin-right: 8px; font-size: 3rem"></i></a>
+                      </div>
+                      <div class="col-md-4 mt-3">
+                        <a href="#"><h4 class="font-weight-bold">087863168050</h4></a> 
+                      </div>
+                        
                     </div>
                 </div>
             </div>

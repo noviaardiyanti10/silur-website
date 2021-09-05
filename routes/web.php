@@ -32,6 +32,9 @@ Route::get('/beranda', function(){
 Route::get('/detaildagang', function(){
     return view('detaildagang');
 });
+Route::get('/keranjangpembeli', function(){
+    return view('keranjangpembeli');
+});
 
 Auth::routes();
 

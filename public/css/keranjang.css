@@ -1,0 +1,12 @@
+.card {
+    width: 75% !important;
+    display: flex;
+    justify-content: center;
+    height: 10rem !important;
+    margin-bottom: 1rem !important;
+}
+
+.card .content {
+    margin-left: 5rem !important;
+    margin-top: 2rem !important;
+}

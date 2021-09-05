@@ -35,7 +35,6 @@
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav ml-auto">
                             <a class="nav-item nav-link" href="{{ url('/') }}">Home <span class="sr-only">(current)</span></a>
-                            <a class="nav-item nav-link" href="{{ url('/beranda') }}">Beranda <span class="sr-only">(current)</span></a>
                             <a class="nav-item nav-link" href="#section2">Mitra</a>
                             <a class="nav-item nav-link" href="#section1">Tentang Kami</a>
                         <li class="nav-item">
