@@ -8,39 +8,17 @@
 
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
    
 
     <link rel="stylesheet" href="{{ asset('css/beranda.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/navbar.css') }}">
 </head>
 
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg">
-            <div class="container-fluid">
-
-                <a class="navbar-brand font-weight-bold text-warning" href="#">Silur</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div>
-                    
-                </div>
-
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ml-auto">
-                        <a class="nav-item nav-link font-weight-bold text-warning" href="{{ url('/') }}">Home <span class="sr-only">(current)</span></a>
-                        <a class="nav-item nav-link font-weight-bold text-warning" href="#">Hubungi Kami</a>
-                        <a class="nav-item nav-link font-weight-bold text-warning" href="{{ url('/keranjangpembeli') }}">Keranjang</a>
-                    </ul>
-                </div>
-                <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Masukan kata kunci" aria-label="Search">
-                    <button class="btn btn-outline-warning my-4 my-sm-0 font-weight-bold text-white" type="submit">Search</button>
-                  </form>
-            </div>
-        </nav>
+        @include('layouts.navbar')
     </header>
         <!-- Page Content  -->
         <div>

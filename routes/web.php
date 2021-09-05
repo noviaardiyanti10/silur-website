@@ -35,6 +35,9 @@ Route::get('/detaildagang', function(){
 Route::get('/keranjangpembeli', function(){
     return view('keranjangpembeli');
 });
+Route::get('/notifikasi', function(){
+    return view('notifikasi');
+});
 
 Auth::routes();
 
